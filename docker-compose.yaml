@@ -4,7 +4,7 @@ services:
 
   redis-cluster-0:
     container_name: redis-cluster-0
-    image: redis:5.0.8
+    image: redis:6.2
     restart: always
     volumes:
       - ./redis/redis-cluster-0/redis.conf:/etc/usr/local/redis.conf
@@ -17,7 +17,7 @@ services:
 
   redis-cluster-1:
     container_name: redis-cluster-1
-    image: redis:5.0.8
+    image: redis:6.2
     restart: always
     volumes:
       - ./redis/redis-cluster-1/redis.conf:/etc/usr/local/redis.conf
@@ -32,7 +32,7 @@ services:
 
   redis-cluster-2:
     container_name: redis-cluster-2
-    image: redis:5.0.8
+    image: redis:6.2
     restart: always
     volumes:
       - ./redis/redis-cluster-2/redis.conf:/etc/usr/local/redis.conf
@@ -47,7 +47,7 @@ services:
 
   redis-cluster-3:
     container_name: redis-cluster-3
-    image: redis:5.0.8
+    image: redis:6.2
     restart: always
     volumes:
       - ./redis/redis-cluster-3/redis.conf:/etc/usr/local/redis.conf
@@ -62,7 +62,7 @@ services:
 
   redis-cluster-4:
     container_name: redis-cluster-4
-    image: redis:5.0.8
+    image: redis:6.2
     restart: always
     volumes:
       - ./redis/redis-cluster-4/redis.conf:/etc/usr/local/redis.conf
@@ -77,7 +77,7 @@ services:
 
   redis-cluster-5:
     container_name: redis-cluster-5
-    image: redis:5.0.8
+    image: redis:6.2
     restart: always
     volumes:
       - ./redis/redis-cluster-5/redis.conf:/etc/usr/local/redis.conf
@@ -93,4 +93,7 @@ services:
 networks:
   redis-cluster:
     driver: bridge
-
+    ipam:
+        driver: default
+        config:
+            - subnet: "172.21.0.0/24"
